@@ -4,13 +4,7 @@
 int main()
 {
     int i,j,sum,s,sd,p,pd,d;
-    while(scanf("%d %d",&i,&j)){
-          if (i<j){
-            int tmp;
-            tmp = i;
-            i = j;
-            j = tmp;
-          }
+    while(scanf("%d %d",&j,&i)!=EOF){
           int sum = i + j;
           int s = (i+j)*(i+j);
           int sd = (i-j)*(i-j);
@@ -20,3 +14,4 @@ int main()
           printf("%d\n%d\n%d\n%d\n%d\n%d\n",sum,s,p,d,sd,pd);
           }
 }
+
