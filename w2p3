@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i,j,k,max,min;
+    while(scanf("%d %d %d",&i,&j,&k)!=EOF){
+          if(i > j){
+                if (j > k){
+                    max = i;
+                    min = k;
+                }else{
+                if(i > k){
+                   max = i;
+                   min = j;
+                }else{
+                max = k;
+                min = i;
+                }
+                }
+          }else{
+          if(j < k){
+            max = k;
+            min = i;
+          }else{
+              if(i < k){
+                min = i;
+                max = j;
+              }else{
+              min = k;
+              max = j;}
+          }
+
+
+            }
+            printf("largest:%d\nsmallest:%d\n",max,min);
+    }
+}
+
