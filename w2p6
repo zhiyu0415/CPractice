@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main() {
+	int num = 0;
+	while (scanf("%d", &num) != EOF) {
+		int a = num / 10000;
+		int b = (num / 1000) - a * 10;
+		int c = (num / 100) - b * 10 - a * 100;
+		int d = (num / 10) - c * 10 - b * 100 - a * 1000;
+		int e = num - d * 10 - c * 100 - b * 1000 - a * 10000;
+		printf("%d   %d   %d   %d   %d\n", a,b,c,d,e);
+	}return 0;
+}
