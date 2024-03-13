@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main() {
+	float h = 0.00, w = 0.0;
+	scanf("%f",&h);
+	scanf("%f", &w);
+	float bmi = w / (h * h);
+	if (bmi < 18.5) {
+		printf("%.3f\nUnderweight\n", bmi);
+	}
+	else if (bmi >= 18.5 && bmi <= 24.9) {
+		printf("%.3f\nNormal\n", bmi);
+	}
+	else if (bmi >= 25 && bmi < 30) {
+		printf("%.3f\nOverweight\n", bmi);
+	}
+	else {
+		printf("%.3f\nObese\n", bmi);
+	}return;
+
+}
