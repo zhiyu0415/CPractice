@@ -1,0 +1,22 @@
+#include <stdio.h>  
+#include<stdlib.h>  
+int main() {
+    float miles, gallons;
+    float msum = 0;
+    float gsum = 0;
+    while (scanf("%f", &gallons) != EOF) {
+        if (gallons != -1) {
+            scanf("%f", &miles);
+            float using = miles / gallons;
+            printf("The miles / gallon for this tank was %f\n", using);
+            msum = msum + miles;
+            gsum = gsum + gallons;
+            printf("\n");
+        }
+        else {
+            float  ave = msum / gsum;
+            printf("The overall average miles / gallon was %f\n", ave);
+        }
+    }return;
+
+}
