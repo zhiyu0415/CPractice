@@ -1,0 +1,29 @@
+#include <stdio.h>  
+#include<stdlib.h>  
+int main() {
+    long long  inputnum = 0;
+    int flag = 0;
+    while (scanf("%lld", &inputnum) != EOF) {
+        long long  checknum = inputnum;
+        long long  reverse = 0;
+
+        while (inputnum > 0) {
+            int last = inputnum % 10;
+            reverse = reverse * 10 + last;
+            inputnum /= 10;
+        }
+        if (flag == 0) {
+            flag = 1;
+        }else {
+            if (checknum == reverse) {
+                printf("True\n");
+            }
+            else { printf("False\n"); }
+        }
+
+    }
+
+
+    return;
+
+}
