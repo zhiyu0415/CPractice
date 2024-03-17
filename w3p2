@@ -1,0 +1,23 @@
+#include <stdio.h>    
+#include<stdlib.h>    
+int main() {
+    float loan, rate, days;
+    int flag = 1;
+    while (scanf("%f", &loan) != EOF) {
+        if (loan != -1) {
+            if (flag != 0) {
+                flag = 0;
+            }
+            else {
+                printf("\n");
+            }
+            scanf("%f %f", &rate, &days);
+            float charge = (loan * rate) * (days / 365);
+            printf("The interest charge is $%.2f\n", charge);
+        }
+        else {
+            break;
+        }
+    }return;
+
+}
