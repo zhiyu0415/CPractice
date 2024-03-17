@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main(){
+	char nums[1001];
+	while (scanf("%s", nums) != EOF) {
+		int evenSum = 0;
+		int oddSum = 0;
+		int length = strlen(nums);
+		if (strcmp(nums,"0")==0) {
+			break;
+		}
+		else {
+			for (int i = 0; i <= length - 1; i++) {
+				int num = nums[i] - '0';
+				if (i % 2 == 0) {
+					evenSum = evenSum + num;
+				}
+				else {
+					oddSum = oddSum + num;
+				}
+			}if ((evenSum - oddSum) % 11 == 0) {
+				printf("%s is a multiple of 11.\n", nums);
+			}
+			else {
+				printf("%s is not a multiple of 11.\n", nums);
+			}
+
+		}
+	}return;
+}
