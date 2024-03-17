@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include<stdlib.h>
+void printA(int);
+void printB(int);
+void printC(int);
+void printD(int);
+
+int main(void) {
+	char c;
+	int num;
+	int flag = 1;
+	while (scanf(" %c %d", &c, &num) != EOF)
+	{	
+		if (flag != 0) {
+			flag = 0;
+		}
+		else {
+			printf("\n");
+		}
+		if (c == 'A') {
+			printA(num);
+		}
+		else if (c=='B')
+		{
+			printB(num);
+		}
+		else if (c == 'C') {
+			printC(num);
+		}
+		else if (c == 'D') {
+			printD(num);
+		}
+	}return;
+}
+
+void printA(int num) {
+	for (int i = 1; i <= num; i++) {
+		for (int j = 1; j <= i; j++) {
+			printf("*");
+		}printf("\n");
+	}
+}
+void printB(int num) {
+	for (int i = 1; i <= num; i++) {
+		for (int j = num; j >=i; j--) {
+			printf("*");
+		}printf("\n");
+	}
+}
+void printC(int num) {
+	for (int i = 1; i <= num; i++) {
+		for (int k = 1; k <= (num-i); k++) {
+			printf(" ");
+		}
+		for (int j = 1; j <= i; j++) {
+			printf("*");
+		}printf("\n");
+	}
+}
+void printD(int num) {
+	for (int i = 1; i <= num; i++) {
+		for (int k = 1; k <=i-1; k++) {
+			printf(" ");
+		}
+		for (int j = num; j >= i; j--) {
+			printf("*");
+		}printf("\n");
+	}
+}
