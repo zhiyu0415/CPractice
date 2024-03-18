@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main()
+{
+    int a,b;
+while (scanf("%d %d",&a,&b)!=EOF){
+    int count = 0;
+    int square =0;
+    if(a!=0){
+    int c = sqrt(b);
+    for(int i = 1;i <= c;i++){
+        square = i*i;
+        if (square >= a && square <= b){
+            count+=1;
+        }else{
+        }
+    }printf("%d\n",count);
+    }else{
+        break;
+    }
+}
+}
