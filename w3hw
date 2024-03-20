@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main() {
+	int num = 0;
+	while (scanf("%d", &num) != EOF) {
+		if (num % 2 != 0) {
+			for (int i = 1; i <= num/2; i++) {
+				for (int k = ((num/2)-i)+1; k > 0; k--) {
+					printf(" ");
+				}
+				for (int j = 1; j <= (i*2)-1; j++) {
+					printf("*");
+				}printf("\n");
+			}for (int i = 1; i <=num; i++) {
+				printf("*");
+			}printf("\n");
+			for (int a = (num/2); a > 0; a--) {
+				for (int c = 0; c < ((num / 2) - a)+1; c++) {
+					printf(" ");
+				}for (int b = (a * 2) - 1; b > 0; b--) {
+					printf("*");
+				}printf("\n");
+			}
+		}printf("\n");
+	}
+}
