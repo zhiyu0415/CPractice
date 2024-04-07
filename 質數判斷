@@ -1,38 +1,29 @@
 #include <stdio.h>
-#include <stdbool.h>
-#include <math.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<math.h>
 
-bool isPrime(unsigned long long);
+bool isPrime(unsigned long long int num);
 
-int main() {
-    unsigned long long n;
-    bool flag = false;
-
-    while (scanf("%llu", &n) != EOF) {
-        int count = 0;
-        if (flag) {
-            printf("\n");
-        }
-        flag = true;
-        for (unsigned long long i = 2; i <= n; ++i) {
-            if (isPrime(i)) {
-                printf("%llu ", i);
-                count++;
-                if (count == 10) {
-                    printf("\n");
-                    count= 0;
-                }
-            }
-        }
-        printf("\n");
-    }
-    return 0;
+int midtest2() {
+	unsigned long long int m, n;
+	while (scanf("%llu %llu", &m, &n) != EOF) {
+		if (m > n) {
+			unsigned long long int tmp = m;
+			m = n;
+			n = tmp;
+		}
+		unsigned long count = 0;
+		for (unsigned long long int i = m; i <= n; i++) {
+			if (isPrime(i))count++;
+		}
+		printf("%lu\n", count);
+	}return 0;
 }
 
-bool isPrime(unsigned long long n) {
-    if (n < 2) return false;
-    for (unsigned long long i = 2; i <= (unsigned long long)sqrt(n); ++i) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
+bool isPrime(unsigned long long int num) {
+	if (num <= 1)return false;
+	if (num <= 3)return true;
+	for (unsigned long long int i = 2; i <= (unsigned long long int)sqrt(num); i++) {
+		if (num % i == 0)return false;
+	}return true;
