@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include<stdlib.h>
+int plus(int);
+int check(int);
+
+int main() {
+	int  num = 0;
+	while (scanf("%d", &num) != EOF) {
+		if (num == 0){
+			break;
+		}
+		else {
+			int result = check(num);
+			printf("%d\n", result);
+		}
+		
+	}
+}
+
+int plus(int num) {
+	int sum = 0;
+	while (num > 0) {
+		sum += num % 10;
+		num /= 10;
+	}return sum;
+}
+int check(int num) {
+	while (num > 10) {
+		num = plus(num);
+	}return num;
+}
