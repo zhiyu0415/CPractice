@@ -5,7 +5,7 @@
 
 bool isPrime(unsigned long long int num);
 
-int midtest2() {
+int main() {
 	unsigned long long int m, n;
 	while (scanf("%llu %llu", &m, &n) != EOF) {
 		if (m > n) {
