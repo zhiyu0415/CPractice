@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<math.h>
+
+int gcd(int,int);
+int ans(int,int);
+
+int main() {
+	int n1,n2 = 0;
+	while (scanf("%d %d", &n1,&n2) != EOF) {
+				printf("%d\n", ans(n1,n2));
+	}
+	return 0;
+}
+
+int gcd(int a , int b) {
+	while(b != 0){
+		int tmp = b;
+		b = a % b;
+		a = tmp;
+	}return a;
+}
+
+int ans(int a , int b) {
+	int num = 0;
+	num = (a * b) / gcd(a,b);
+	return num;
+}
