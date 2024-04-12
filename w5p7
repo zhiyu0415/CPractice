@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<math.h>
+
+void printrec(int,int,char);
+
+int main() {
+	int a, b;
+	char s;
+	scanf("%d %d %c", &a, &b, &s);
+	printrec(a, b, s);
+}
+
+void printrec(int a, int b, char s) {
+	for (int i = 0; i < a; i++) {
+		for (int j = 0; j < b; j++) {
+			printf("%c",s);
+		}printf("\n");
+	}
+}
+
