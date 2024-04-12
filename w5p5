@@ -1,0 +1,27 @@
+#pragma warning(disable:4996)
+#include <stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<math.h>
+
+bool judge(char);
+
+int main() {
+	char s;
+	scanf("%c", &s);
+	if (judge(s)){
+		printf("1\n");
+	}
+	else {
+		if (s != '\n' && s != ' ') {
+			printf("0\n");
+		}
+	}
+}
+
+bool judge(char s) {
+	if (s >= 'A' && s <= 'Z') {
+		return true;
+	}
+	else return false;
+}
