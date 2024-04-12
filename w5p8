@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<math.h>
+
+float cel(float);
+float fah(float);
+
+int main() {
+	float temp;
+	char type;
+	scanf("%c %f", &type, &temp);
+	if (type == 'C') {
+		printf("%.6f\n", cel(temp));
+	}
+	else if(type=='F'){
+		printf("%.6f\n", fah(temp));
+	}
+	return 0;
+}
+
+float cel(float temp) {
+	float ans = temp * 1.8 + 32;
+	return ans;
+}
+
+float fah(float temp) {
+	float ans = (temp - 32)/1.8;
+	return ans;
+}
+
