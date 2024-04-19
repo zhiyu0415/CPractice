@@ -1,0 +1,43 @@
+#pragma warning(disable:4996)
+#include <stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<math.h>
+#include <string.h>
+
+bool isJolly(int[],int);
+
+int main() {
+	int num[1001];
+	int check[1001];
+	int time;
+	int length;
+	while (scanf("%d", &length) != EOF) {
+		for (int k = 0; k < length; k++) {
+			scanf("%d", &num[k]);
+		}
+		for (int i = 1; i < length; i++) {
+				int diff = 0;
+				diff = abs(num[i] - num[i-1]);
+				check[i] = diff;
+		}
+		if (isJolly(check,length)) printf("Jolly\n");
+		else printf("Not jolly\n");
+	}
+}
+
+bool isJolly(int check[],int length) {
+	int judge[1001] = { false };
+	for (int i = 1; i < length; i++) {
+		int ans = abs(check[i]);
+		if (ans >= 1 && ans <= length - 1) { 
+			judge[ans] = true;
+		}
+	}
+	for (int j = 1; j < length; j++) {
+		if (judge[j] == 0) {
+			return false;
+		}
+	}
+	return true;
+}
