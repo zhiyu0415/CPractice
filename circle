@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<math.h>
+
+
+char relation(float, float, float, float, float, float);
+
+int main() {
+	float a, b, c, d, e, f;
+	while (scanf("%f %f %f %f %f %f", &a, &b, &c, &d, &e, &f) != EOF) {
+		char result = relation(a, b, c, d, e, f);
+		if (result == 's') printf("Separate\n");
+		else if (result == 't') printf("Tangent\n");
+		else printf("Intersect\n");
+	}return 0;
+}
+
+
+
+char relation(float a, float b, float c, float d, float e, float f){
+	float x = -a / 2.0;
+	float y = -b / 2.0;
+	float r = sqrt(x * x + y * y - c);
+	float line_distance = fabs(d * x + e * y + f) / sqrt(d * d + e * e);
+	if (line_distance > r) return 's';
+	else if (line_distance == r) return 't';
+	else return 'i';
+}
