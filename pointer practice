@@ -5,6 +5,13 @@ int main() {
     char letter = 'A';
     float pi = 3.14159;
 
+    int integer_var;
+    char char_var;
+    float float_var;
+    double double_var;
+    unsigned int unsigned_int_var;
+    unsigned char unsigned_char_var;
+
     // Pointer variables
     int *ptr_num;
     char *ptr_letter;
@@ -28,6 +35,16 @@ int main() {
     printf("Value of num using pointer: %d\n", *ptr_num);
     printf("Value of letter using pointer: %c\n", *ptr_letter);
     printf("Value of pi using pointer: %.5f\n", *ptr_pi);
+
+    printf("\n");
+    printf("sizeof different data types");
+    // Printing sizes of different data types
+    printf("Size of int: %zu bytes\n", sizeof(integer_var));
+    printf("Size of char: %zu bytes\n", sizeof(char_var));
+    printf("Size of float: %zu bytes\n", sizeof(float_var));
+    printf("Size of double: %zu bytes\n", sizeof(double_var));
+    printf("Size of unsigned int: %zu bytes\n", sizeof(unsigned_int_var));
+    printf("Size of unsigned char: %zu bytes\n", sizeof(unsigned_char_var));
 
     return 0;
 }
