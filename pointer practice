@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int num = 10;
+    char letter = 'A';
+    float pi = 3.14159;
+
+    // Pointer variables
+    int *ptr_num;
+    char *ptr_letter;
+    float *ptr_pi;
+
+    // Assigning addresses to pointer variables
+    ptr_num = &num;
+    ptr_letter = &letter;
+    ptr_pi = &pi;
+
+    // Printing values and memory addresses
+    printf("memory address\n");
+
+    printf("Value of num: %d, Memory address of num: %p\n", num, &num);
+    printf("Value of letter: %c, Memory address of letter: %p\n", letter, &letter);
+    printf("Value of pi: %.5f, Memory address of pi: %p\n", pi, &pi);
+    
+    printf("\n");
+    printf("pointer value\n");
+    // Using dereference operator (*) to access values via pointers
+    printf("Value of num using pointer: %d\n", *ptr_num);
+    printf("Value of letter using pointer: %c\n", *ptr_letter);
+    printf("Value of pi using pointer: %.5f\n", *ptr_pi);
+
+    return 0;
+}
