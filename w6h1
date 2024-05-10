@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+#define max_size 100
+
+int GCD(int,int);
+
+int main() {
+	int a, b;
+	while (scanf("%d %d", &a, &b) != EOF) {
+		if (a == 0 && b == 0) {
+			break;
+		}
+		else {
+			int ans = GCD(a, b);
+			printf("%d\n", ans);
+		}
+	}return 0;
+}
+
+int GCD(int a, int b) {
+	int tmp = a % b;
+	if (tmp == 0)return b;
+	return GCD(b, tmp);
+}
