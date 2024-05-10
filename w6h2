@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include <string.h>
+
+#define max_size 150
+void restring(char*);
+
+int main() {
+	char input[max_size];
+	while (gets(input)) {
+		int length = strlen(input);
+		input[length - 1] = '\0';
+		for (int i = 0; i < length; i++) {
+			printf("%c", input[i]);
+		}
+		printf("\n");
+		restring(input);
+	}return 0;
+}
+
+void restring(char* input) {
+	int length = strlen(input);
+	for (int i = length; i >= 0; i--) {
+		printf("%c", input[i]);
+	}printf("\n");
+
+}
