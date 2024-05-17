@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include <string.h>
+
+int isnine(char*);
+
+int main() {
+	char num[1000];
+	while (scanf("%s", num) != EOF) {
+		if (num[0] == '0' && strlen(num) == 1) {
+			break;
+		}
+		printf("%s", num);
+		int D = isnine(num);
+		if (D > 0) {
+			printf(" is a multiple of 9 and has 9-degree %d.\n", D);
+		}
+		else {
+			printf(" is not a multiple of 9.\n");
+		}
+	}return 0;
+}
+
+int isnine(char *str) {
+	int degree = 0;
+	int sum = 0;
+	if (strlen(str) == 1 && str[0] == '9') {
+		return 1;
+	}
+
+	while (strlen(str) > 1) {
+		sum = 0;
+		for (int i = 0; i < strlen(str); i++) {
+			sum += str[i] - '0';
+		}
+		if (sum % 9 == 0) {
+			degree++;
+		}
+		sprintf(str, "%d", sum);
+	}
+		return degree;
+}
+
