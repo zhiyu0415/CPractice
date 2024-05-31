@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+    char S[1001], A[1001], B[1001];
+    int first = 1;
+
+    while (fgets(S, 1001, stdin) != NULL){
+        S[strcspn(S, "\n")] = '\0';
+        scanf("%s%s\n", A, B);
+        //getchar();
+        if(first){
+            first=0;
+        }else{
+            puts("");
+        }
+        char NEWS[1001] = {0};
+        char *ptr = S, *p;
+
+        ptr = strstr(p = S, A);
+        if (ptr != NULL){
+            int flag = 1;
+            while (ptr != NULL){
+                strncat(NEWS, p, ptr - p);
+                strcat(NEWS, B);
+                if(flag){
+                    flag=0;
+                }else{
+                    printf(" ");
+                }
+                printf("%u",(unsigned)(ptr - S) );
+                p = ptr + strlen(A);
+                ptr = strstr(p, A);
+            }
+            puts("");
+            strcat(NEWS, p);
+            puts(NEWS);
+        } else {
+            printf("-1\n%s\n", S);
+        }
+    }
+
+    return 0;
+}
