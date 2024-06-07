@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int hexToDec(const char*);
+void deToHex(int decimal);
+
+int main() {
+    char input[20];
+
+    while (scanf("%s", input) != EOF) {
+        int value;
+        sscanf(input, "%d", &value);
+        if (value < 0) {
+            break;
+        }
+        if (strncmp(input, "0x", 2) == 0) {
+
+            int decimal = hexToDec(input);
+            printf("%d\n", decimal);
+        } else {
+
+            int decimal;
+            sscanf(input, "%d", &decimal);
+            decToHex(decimal);
+        }
+    }
+
+    return 0;
+}
+
+int hexToDec(const char* hex) {
+    int decimal = 0;
+    int len = strlen(hex);
+    for (int i = 2; i < len; i++) {
+        int digit;
+        if (hex[i] >= '0' && hex[i] <= '9') {
+            digit = hex[i] - '0';
+        } else if (hex[i] >= 'A' && hex[i] <= 'F') {
+            digit = hex[i] - 'A' + 10;
+        } else if (hex[i] >= 'A' && hex[i] <= 'F') {
+            digit = hex[i] - 'A' + 10;
+        }
+        decimal = decimal * 16 + digit;
+    }
+    return decimal;
+}
+
+void decToHex(int decimal) {
+    printf("0x%X\n", decimal);
+}
