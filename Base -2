@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void convert_to_base_neg2(int n, char *result) {
+    int index = 0;
+    if (n == 0) {
+        result[index++] = '0';
+    } else {
+        while (n != 0) {
+            int remainder = n % -2;
+            n /= -2;
+            if (remainder < 0) {
+                remainder += 2;
+                n += 1;
+            }
+            result[index++] = '0' + remainder;
+        }
+    }
+    result[index] = '\0';
+
+    // Reverse the result to get the correct order
+    int len = index;
+    for (int i = 0; i < len / 2; ++i) {
+        char temp = result[i];
+        result[i] = result[len - i - 1];
+        result[len - i - 1] = temp;
+    }
+}
+
+int main() {
+    int T;
+    scanf("%d", &T);
+
+    for (int case_num = 1; case_num <= T; ++case_num) {
+        int n;
+        scanf("%d", &n);
+        char result[64]; // Array to hold base -2 representation (sufficient size for 32-bit integers)
+        convert_to_base_neg2(n, result);
+        printf("Case #%d: %s\n", case_num, result);
+    }
+
+    return 0;
+}
