@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+typedef struct {
+    int day;
+    int month;
+    int year;
+} Date;
+
+int calculate_age(Date cur, Date bir) {
+    int age = cur.year - bir.year;
+
+    if (cur.month < bir.month || (cur.month == bir.month && cur.day < bir.day)) {
+        age--;
+    }
+
+    return age;
+}
+
+int main() {
+    int T;
+    scanf("%d", &T);
+    getchar();
+
+    for (int i = 1; i <= T; i++) {
+        Date cur, bir;
+
+
+        scanf("%d/%d/%d", &cur.day, &cur.month, &cur.year);
+
+        scanf("%d/%d/%d", &bir.day, &bir.month, &bir.year);
+
+        int age = calculate_age(cur, bir);
+
+        if (age < 0) {
+            printf("Case #%d: Invalid birth date\n", i);
+        } else if (age > 130) {
+            printf("Case #%d: Check birth date\n", i);
+        } else if (age == 0) {
+            printf("Case #%d: 0\n", i);
+        } else {
+            printf("Case #%d: %d\n", i, age);
+        }
+    }
+
+    return 0;
+}
