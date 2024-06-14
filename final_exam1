@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_EXPR_LEN 100
+
+double result(double ,double ,char);
+
+int main() {
+    char expr[MAX_EXPR_LEN];
+    char *token;
+    char *endptr;
+    double operands[3];
+    char operators[2];
+    int operand_count = 0;
+    int operator_count = 0;
+    int first=1;
+
+    while(fgets(expr, MAX_EXPR_LEN, stdin)!=NULL){
+        operand_count = 0;
+        operator_count = 0;
+        int flag =0;
+
+        // Remove the newline character from the input string, if it exists
+        expr[strcspn(expr, "\n")] = '\0';
+
+    // Extract operators first
+        for (int i = 0; expr[i] != '\0'; i++) {
+            if (strchr("+-*/", expr[i])) {
+                operators[operator_count++] = expr[i];
+        }
+    }
+
+    // Tokenize the expression to extract operands
+        token = strtok(expr, "+-*/");
+        while (token != NULL) {
+        // Convert token to double and store in operands array
+            operands[operand_count++] = strtod(token, &endptr);
+            token = strtok(NULL, "+-*/");
+        }
+        if (!first) {
+            printf("\n");
+        }
+        first = 0;
+    // Print all double values of operands
+        for (int i = 0; i < operand_count; i++) {
+            if(flag){
+                printf(" ");
+            }flag=0;
+            printf("%.0f", operands[i]);
+            flag=1;
+    }
+
+    // Print all operators in sequence
+        for (int i = 0; i < operator_count; i++) {
+            printf(" %c", operators[i]);
+    }
+        printf("\n");
+
+        for (int i = 0; i < operator_count; i++) {
+            if (operators[i] == '*'||operators[i] == '/') {
+                operands[i] = result(operands[i], operands[i + 1], operators[i]);
+                for (int j = i + 1; j < operand_count - 1; j++) {
+                    operands[j] = operands[j + 1];
+            }
+                for (int j = i; j < operator_count - 1; j++) {
+                    operators[j] = operators[j + 1];
+            }
+                operand_count--;
+                operator_count--;
+                i--;
+        }
+    }
+
+        double ans=operands[0];
+        for (int i = 0; i < operator_count; i++) {
+            ans = result(ans, operands[i + 1], operators[i]);
+    }
+        // Output the result
+
+        if (ans > 0) {
+            printf("+%.2f\n", ans);
+        } else {
+            printf("%.2f\n", ans);
+        }
+    }
+
+    return 0;
+}
+
+double result(double operand1, double operand2, char operator) {
+    switch(operator) {
+        case '*':
+            return operand1 * operand2;
+        case '/':
+            if (operand2 == 0) {
+                printf("Error: Division by zero\n");
+                exit(EXIT_FAILURE);
+            }
+            return operand1 / operand2;
+        case '+':
+            return operand1 + operand2;
+        case '-':
+            return operand1 - operand2;
+        default:
+            printf("Error: Invalid operator\n");
+            exit(EXIT_FAILURE);
+    }
+}
+
